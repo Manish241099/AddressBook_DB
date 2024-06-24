@@ -19,3 +19,43 @@ mysql> show databases;
 | sys                |
 +--------------------+
 6 rows in set (0.01 sec)
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+                                    UC2:Ability to create a Address Book Table with first and last names,
+                                        address, city, state, zip, phone                   
+                                        number and email as its attributes.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+mysql> CREATE TABLE AddressBook (
+    ->     AddressBook_no INT AUTO_INCREMENT PRIMARY KEY,
+    ->     FirstName VARCHAR(255),
+    ->     LastName VARCHAR(255),
+    ->     city VARCHAR(255),
+    ->     zip INT,
+    ->     phone_No VARCHAR(255) NOT NULL,
+    ->     Email VARCHAR(255) NOT NULL,
+    ->     CONSTRAINT chk_PhoneNumber CHECK (phone_No REGEXP '^[0-9]{10,15}$'),
+    ->     UNIQUE (phone_No)
+    -> );
+Query OK, 0 rows affected (0.90 sec)
+
+mysql> select * from AdressBook;
+ERROR 1146 (42S02): Table 'addressbook_db.adressbook' doesn't exist
+mysql> select * from AddressBook;
+Empty set (0.10 sec)
+
+mysql> desc AddressBook;
++----------------+--------------+------+-----+---------+----------------+
+| Field          | Type         | Null | Key | Default | Extra          |
++----------------+--------------+------+-----+---------+----------------+
+| AddressBook_no | int          | NO   | PRI | NULL    | auto_increment |
+| FirstName      | varchar(255) | YES  |     | NULL    |                |
+| LastName       | varchar(255) | YES  |     | NULL    |                |
+| city           | varchar(255) | YES  |     | NULL    |                |
+| zip            | int          | YES  |     | NULL    |                |
+| phone_No       | varchar(255) | NO   | UNI | NULL    |                |
+| Email          | varchar(255) | NO   |     | NULL    |                |
++----------------+--------------+------+-----+---------+----------------+
+7 rows in set (0.69 sec)
