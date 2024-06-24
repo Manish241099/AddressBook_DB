@@ -59,3 +59,43 @@ mysql> desc AddressBook;
 | Email          | varchar(255) | NO   |     | NULL    |                |
 +----------------+--------------+------+-----+---------+----------------+
 7 rows in set (0.69 sec)
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+                                UC3:Ability to insert new Contacts to Address Book
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+mysql> INSERT INTO AddressBook (AddressBook_no,FirstName,LastName,City,zip,phone_No,Email)
+    -> ^C
+mysql> INSERT INTO AddressBook (FirstName,LastName,City,zip,phone_No,Email)
+    -> VALUES ('Manish','Khade','Mumbai',400089,'9320559246','Manishkhade241099@gmail.com');
+Query OK, 1 row affected (0.02 sec)
+
+mysql> INSERT INTO AddressBook (FirstName,LastName,City,zip,phone_No,Email)
+    -> VALUES ('Swapnil','Yadav','Navi Mumbai',400706,'8104345244','Swanil@gmail.com');
+Query OK, 1 row affected (0.02 sec)
+
+mysql> INSERT INTO AddressBook (FirstName,LastName,City,zip,phone_No,Email)
+    -> VALUES ('Anwar','Shaikh','Navi Mumbai',400708,'8652741234','Anwar@gmail.com');
+Query OK, 1 row affected (0.02 sec)
+
+mysql> INSERT INTO AddressBook (FirstName,LastName,City,zip,phone_No,Email)
+    -> VALUES ('Nitish','Prajapati','Panvel','410293','7652079588','Nitish@gmail.com');
+Query OK, 1 row affected (0.84 sec)
+
+mysql> INSERT INTO AddressBook (FirstName,LastName,City,zip,phone_No,Email)
+    -> VALUES ('Smital','Patil','Ghansoli_Gaon',400701,'8451091205','Smital@gmail.com');
+Query OK, 1 row affected (0.42 sec)
+
+mysql> select * from AddressBook;
++----------------+-----------+-----------+---------------+--------+------------+-----------------------------+
+| AddressBook_no | FirstName | LastName  | city          | zip    | phone_No   | Email                       |
++----------------+-----------+-----------+---------------+--------+------------+-----------------------------+
+|              1 | Manish    | Khade     | Mumbai        | 400089 | 9320559246 | Manishkhade241099@gmail.com |
+|              2 | Swapnil   | Yadav     | Navi Mumbai   | 400706 | 8104345244 | Swanil@gmail.com            |
+|              3 | Anwar     | Shaikh    | Navi Mumbai   | 400708 | 8652741234 | Anwar@gmail.com             |
+|              4 | Nitish    | Prajapati | Panvel        | 410293 | 7652079588 | Nitish@gmail.com            |
+|              5 | Smital    | Patil     | Ghansoli_Gaon | 400701 | 8451091205 | Smital@gmail.com            |
++----------------+-----------+-----------+---------------+--------+------------+-----------------------------+
+5 rows in set (0.00 sec)
