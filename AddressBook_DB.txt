@@ -207,5 +207,75 @@ mysql> select * from addressbook;
 |              7 | Tushar    | Jadhav    | Mumbai        | 400701 | 8451092256 | Tushar@gmail.com            |
 |              8 | Vedant    | Gujrathi  | Mumbai        | 400703 | 8453091256 | Vendant@gmail.com           |
 +----------------+-----------+-----------+---------------+--------+------------+-----------------------------+
+
 7 rows in set (0.00 sec)
 
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+                                   UC9:Ability to identify each Address Book with name and Type.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+mysql> UPDATE AddressBook
+    -> SET Type='Family'
+    -> where FirstName='Manish';
+Query OK, 1 row affected (0.02 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> UPDATE AddressBook
+    -> SET Type='Friend'
+    -> where FirstName='Swapnil';
+Query OK, 1 row affected (0.32 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> UPDATE AddressBook
+    -> SET Type='Neighbour'
+    -> where FirstName='Nitish';
+Query OK, 1 row affected (0.52 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> UPDATE AddressBook
+    -> SET Type='Enemy'
+    -> where FirstName='Smital';
+Query OK, 1 row affected (0.14 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> UPDATE AddressBook
+    -> SET Type='Friend'
+    -> where FirstName='Nitish';
+Query OK, 1 row affected (0.70 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> UPDATE AddressBook
+    -> SET Type='Family'
+    -> where FirstName='Vaibhav';
+Query OK, 1 row affected (0.02 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> UPDATE AddressBook
+    -> SET Type='collegue'
+    -> where FirstName='Vedant';
+Query OK, 1 row affected (0.58 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> UPDATE AddressBook
+    -> SET Type='collegue'
+    -> where FirstName='Tushar';
+Query OK, 1 row affected (0.02 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> SELECT * FROM AddressBook;
++----------------+-----------+-----------+---------------+--------+------------+-----------------------------+----------+
+| AddressBook_no | FirstName | LastName  | city          | zip    | phone_No   | Email                       | Type     |
++----------------+-----------+-----------+---------------+--------+------------+-----------------------------+----------+
+|              1 | Manish    | Khade     | Mumbai        | 400089 | 9320559246 | Manishkhade241099@gmail.com | Family   |
+|              2 | Swapnil   | Yadav     | Navi Mumbai   | 400706 | 8104345244 | Swanil@gmail.com            | Friend   |
+|              4 | Nitish    | Prajapati | Ulve          | 400803 | 9757400321 | Amey@gmail.com              | Friend   |
+|              5 | Smital    | Patil     | Ghansoli_Gaon | 400701 | 8451091205 | Smital@gmail.com            | Enemy    |
+|              6 | vaibhav   | Kumbhar   | Mumbai        | 400701 | 8451091256 | Vaibhav@gmail.com           | Family   |
+|              7 | Tushar    | Jadhav    | Mumbai        | 400701 | 8451092256 | Tushar@gmail.com            | collegue |
+|              8 | Vedant    | Gujrathi  | Mumbai        | 400703 | 8453091256 | Vendant@gmail.com           | collegue |
++----------------+-----------+-----------+---------------+--------+------------+-----------------------------+----------+
+7 rows in set (0.00 sec)
