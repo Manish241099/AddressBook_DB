@@ -297,3 +297,75 @@ mysql> SELECT Type, COUNT(*) AS count_of_phone_numbers
 | Enemy    |                      1 |
 | collegue |                      2 |
 +----------+------------------------+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+                                        UC11:Ability to add Person to both Friend and Family.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+mysql> INSERT INTO AddressBook (FirstName, LastName, city, zip, phone_No, Email, Type)
+    -> VALUES ('Thomas', 'Adison', 'Japan', '569933', '2700489124', 'Thomas@Japan.com', 'Family');
+Query OK, 1 row affected (0.00 sec)
+
+mysql>
+mysql> -- Insert as Friend
+mysql> INSERT INTO AddressBook (FirstName, LastName, city, zip, phone_No, Email, Type)
+    -> VALUES ('Thomas', 'Adison', 'Japan', '569933', '2700489124', 'Thomas@Japan.com', 'Friend');
+ERROR 1062 (23000): Duplicate entry '2700489124' for key 'addressbook.phone_No'
+mysql> SELECT * FROM AddressBook;
++----------------+-----------+-----------+---------------+--------+------------+-----------------------------+----------+
+| AddressBook_no | FirstName | LastName  | city          | zip    | phone_No   | Email                       | Type     |
++----------------+-----------+-----------+---------------+--------+------------+-----------------------------+----------+
+|              1 | Manish    | Khade     | Mumbai        | 400089 | 9320559246 | Manishkhade241099@gmail.com | Family   |
+|              2 | Swapnil   | Yadav     | Navi Mumbai   | 400706 | 8104345244 | Swanil@gmail.com            | Friend   |
+|              4 | Nitish    | Prajapati | Ulve          | 400803 | 9757400321 | Amey@gmail.com              | Friend   |
+|              5 | Smital    | Patil     | Ghansoli_Gaon | 400701 | 8451091205 | Smital@gmail.com            | Enemy    |
+|              6 | vaibhav   | Kumbhar   | Mumbai        | 400701 | 8451091256 | Vaibhav@gmail.com           | Family   |
+|              7 | Tushar    | Jadhav    | Mumbai        | 400701 | 8451092256 | Tushar@gmail.com            | collegue |
+|              8 | Vedant    | Gujrathi  | Mumbai        | 400703 | 8453091256 | Vendant@gmail.com           | collegue |
+|              9 | Thomas    | Adison    | Japan         | 569933 | 2700489124 | Thomas@Japan.com            | Family   |
++----------------+-----------+-----------+---------------+--------+------------+-----------------------------+----------+
+8 rows in set (0.00 sec)
+
+mysql> INSERT INTO AddressBook (FirstName, LastName, city, zip, phone_No, Email, Type)
+    -> VALUES ('Thomas', 'Adison', 'Japan', '569933', '2700789124', 'Thomas@Japan.com', 'Family');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> SELECT * FROM AddressBook;
++----------------+-----------+-----------+---------------+--------+------------+-----------------------------+----------+
+| AddressBook_no | FirstName | LastName  | city          | zip    | phone_No   | Email                       | Type     |
++----------------+-----------+-----------+---------------+--------+------------+-----------------------------+----------+
+|              1 | Manish    | Khade     | Mumbai        | 400089 | 9320559246 | Manishkhade241099@gmail.com | Family   |
+|              2 | Swapnil   | Yadav     | Navi Mumbai   | 400706 | 8104345244 | Swanil@gmail.com            | Friend   |
+|              4 | Nitish    | Prajapati | Ulve          | 400803 | 9757400321 | Amey@gmail.com              | Friend   |
+|              5 | Smital    | Patil     | Ghansoli_Gaon | 400701 | 8451091205 | Smital@gmail.com            | Enemy    |
+|              6 | vaibhav   | Kumbhar   | Mumbai        | 400701 | 8451091256 | Vaibhav@gmail.com           | Family   |
+|              7 | Tushar    | Jadhav    | Mumbai        | 400701 | 8451092256 | Tushar@gmail.com            | collegue |
+|              8 | Vedant    | Gujrathi  | Mumbai        | 400703 | 8453091256 | Vendant@gmail.com           | collegue |
+|              9 | Thomas    | Adison    | Japan         | 569933 | 2700489124 | Thomas@Japan.com            | Family   |
+|             11 | Thomas    | Adison    | Japan         | 569933 | 2700789124 | Thomas@Japan.com            | Family   |
++----------------+-----------+-----------+---------------+--------+------------+-----------------------------+----------+
+9 rows in set (0.00 sec)
+
+mysql> UPDATE AddressBook
+    -> SET Type='Friend'
+    -> WHERE AddressBook_no=11;
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> SELECT * FROM AddressBook;
++----------------+-----------+-----------+---------------+--------+------------+-----------------------------+----------+
+| AddressBook_no | FirstName | LastName  | city          | zip    | phone_No   | Email                       | Type     |
++----------------+-----------+-----------+---------------+--------+------------+-----------------------------+----------+
+|              1 | Manish    | Khade     | Mumbai        | 400089 | 9320559246 | Manishkhade241099@gmail.com | Family   |
+|              2 | Swapnil   | Yadav     | Navi Mumbai   | 400706 | 8104345244 | Swanil@gmail.com            | Friend   |
+|              4 | Nitish    | Prajapati | Ulve          | 400803 | 9757400321 | Amey@gmail.com              | Friend   |
+|              5 | Smital    | Patil     | Ghansoli_Gaon | 400701 | 8451091205 | Smital@gmail.com            | Enemy    |
+|              6 | vaibhav   | Kumbhar   | Mumbai        | 400701 | 8451091256 | Vaibhav@gmail.com           | Family   |
+|              7 | Tushar    | Jadhav    | Mumbai        | 400701 | 8451092256 | Tushar@gmail.com            | collegue |
+|              8 | Vedant    | Gujrathi  | Mumbai        | 400703 | 8453091256 | Vendant@gmail.com           | collegue |
+|              9 | Thomas    | Adison    | Japan         | 569933 | 2700489124 | Thomas@Japan.com            | Family   |
+|             11 | Thomas    | Adison    | Japan         | 569933 | 2700789124 | Thomas@Japan.com            | Friend   |
++----------------+-----------+-----------+---------------+--------+------------+-----------------------------+----------+
+9 rows in set (0.00 sec)
