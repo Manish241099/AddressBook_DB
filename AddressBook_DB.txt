@@ -20,6 +20,7 @@ mysql> show databases;
 +--------------------+
 6 rows in set (0.01 sec)
 
+
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
                                     UC2:Ability to create a Address Book Table with first and last names,
                                         address, city, state, zip, phone                   
@@ -96,6 +97,28 @@ mysql> select * from AddressBook;
 |              2 | Swapnil   | Yadav     | Navi Mumbai   | 400706 | 8104345244 | Swanil@gmail.com            |
 |              3 | Anwar     | Shaikh    | Navi Mumbai   | 400708 | 8652741234 | Anwar@gmail.com             |
 |              4 | Nitish    | Prajapati | Panvel        | 410293 | 7652079588 | Nitish@gmail.com            |
+|              5 | Smital    | Patil     | Ghansoli_Gaon | 400701 | 8451091205 | Smital@gmail.com            |
++----------------+-----------+-----------+---------------+--------+------------+-----------------------------+
+5 rows in set (0.00 sec)
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+                                          UC4:Ability to edit existing contact person using their name
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+mysql> UPDATE AddressBook
+    -> SET city='Ulve',zip='400803',phone_No='9757400321',email='Amey@gmail.com'
+    -> where FirstName='Nitish' AND LastName='Prajapati';
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from AddressBook;
++----------------+-----------+-----------+---------------+--------+------------+-----------------------------+
+| AddressBook_no | FirstName | LastName  | city          | zip    | phone_No   | Email                       |
++----------------+-----------+-----------+---------------+--------+------------+-----------------------------+
+|              1 | Manish    | Khade     | Mumbai        | 400089 | 9320559246 | Manishkhade241099@gmail.com |
+|              2 | Swapnil   | Yadav     | Navi Mumbai   | 400706 | 8104345244 | Swanil@gmail.com            |
+|              3 | Anwar     | Shaikh    | Navi Mumbai   | 400708 | 8652741234 | Anwar@gmail.com             |
+|              4 | Nitish    | Prajapati | Ulve          | 400803 | 9757400321 | Amey@gmail.com              |
 |              5 | Smital    | Patil     | Ghansoli_Gaon | 400701 | 8451091205 | Smital@gmail.com            |
 +----------------+-----------+-----------+---------------+--------+------------+-----------------------------+
 5 rows in set (0.00 sec)
